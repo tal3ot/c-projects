@@ -71,7 +71,7 @@ int main()
         squ(x);
     break;
     default:
-        printf("\nPlease try again later by choosing from 1 <=> 6 !\n");
+        printf("\nPlease try again later by choosing from 1 <=> 5 !\n");
     return 0;
 }
 }
