@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+void add(float x,float y)
+{
+    float Z;
+    Z = x + y;
+    printf("Z = %f ",Z);
+}
+void sub(float x,float y)
+{
+    float Z;
+    Z = x - y;
+    printf("Z = %f ",Z);
+}
+void mult(float x,float y)
+{
+    float Z;
+    Z = x * y;
+    printf("Z = %f ",Z);
+}
+void dev(float x,float y)
+{
+    float Z;
+    Z = x / y;
+    printf("Z = %f ",Z);
+}
+void squ(float x)
+{
+    float Z;
+    Z = x * x;
+    printf("Z = %f ",Z);
+}
+
+int main()
+{
+    float x,y;
+    int options;
+    printf("Welcome in my little calculation\n");
+    printf("plz entre n1 = ");
+    scanf("%f",&x);
+    printf("\nplz entre n2 = ");
+    scanf("%f",&y);
+    printf("\nWelcome! What do you want the calculator to do?\n");
+    printf("\n1 => For Addition enter 1\n\n2 => For Subtraction enter 2\n");
+    printf("\n3 => For Multiplication enter 3\n\n4 => For Division enter 4\n");
+    printf("\n5 => To find Square of the numbers enter 5\n");
+    printf("\nEnter your choice:");
+    scanf("%d",&options);
+    switch(options)
+    {
+    case 1:
+        add(x,y);
+    break;
+    case 2:
+        sub(x,y);
+    break;
+    case 3:
+        mult(x,y);
+    break;
+    case 4:
+        if ((x==0 && y==0)|| y==0){
+            printf("maths error");
+        }
+        else {
+            dev(x,y);
+        }
+
+    break;
+    case 5:
+        squ(x);
+    break;
+    default:
+        printf("\nPlease try again later by choosing from 1 <=> 6 !\n");
+    return 0;
+}
+}
