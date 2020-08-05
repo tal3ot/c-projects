@@ -1,0 +1,21 @@
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main(void) {
+    int dec , reminder ;
+    unsigned long long c = 1;
+    printf(" Enter decimal num : ");
+    scanf(" %d", &dec);
+    unsigned long long binary = 0;
+    int n = dec;
+    while ( n > 0 ){
+        n /= 2;
+        reminder = dec % 2;
+        binary += reminder * c;
+        c = c*10 ;
+        dec /= 2;
+    }
+        printf(" Binary num = %I64u", binary);
+        return 0;
+    }
