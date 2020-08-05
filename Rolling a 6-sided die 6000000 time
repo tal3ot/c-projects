@@ -56,7 +56,7 @@
     }//end for loop
 
             // display results in tabular format
-        printf( " %s%14s\n", "Face", "Frequency" );
+        printf( " %s%14s\n", "Face", "Frequency" );  // %s is a conversion specifier to print the character strings "Face" and "Frequency" as column headers
         printf( " 1%16u\n", frequency1 );
         printf( " 2%16u\n", frequency2 );
         printf( " 3%16u\n", frequency3 );
