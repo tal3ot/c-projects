@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+#include <time.h>
+
+void a_watch(){
+    time_t now;
+    struct tm* dt;
+    signed int delay;
+
+    now = time(NULL);
+    dt = localtime(&now);
+    printf("\r %.2d : %.2d : %.2d ", dt ->tm_hour%12, dt ->tm_min, dt ->tm_sec);
+    delay = time(NULL) + 1;
+    while( time(NULL) < delay);
+
+}
+int main(void)   {
+
+    for (;;)     a_watch();
+}
