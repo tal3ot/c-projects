@@ -1,0 +1,26 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
+int main (){
+    int arry [10] = {0}; //you can write any number you want instead of 10 if your number bigger than 10 digits
+    int n, rem;
+    printf("Entre the num : ");
+    scanf("%d", &n);
+
+    while (n > 0){
+            rem = n%10;
+            if ( arry[rem] == 1 )
+                break;
+            arry[rem] = 1;
+            n = n / 10;
+    }
+    printf("\nIs any number duplicate?");
+    if ( n > 0 )
+        printf(" \n\t>>Yes<< ");
+    else
+        printf(" \n\t>>No<<");
+
+    return 0;
+}
+
