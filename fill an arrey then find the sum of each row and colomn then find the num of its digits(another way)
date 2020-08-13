@@ -3,11 +3,16 @@
 #include <assert.h>
 
 int main (){
-    int  row = 5, colomn = 5,i,j, sum = 0;  //you can change the num of row or colomn from here
-    int arry[row][colomn] ;
-    printf("plz fill this matrix %d x %d \n", row, colomn);
+    int row , colomn ,i ,j , sum = 0;  //you can change the num of row or colomn from here
+    printf(" plz enter the num of row : ");
+    scanf("%d", &row);
+    printf(" plz enter the num of colomn : ");
+    scanf("%d", &colomn);
+    printf("fill the matrix %d x %d\n", row, colomn);
+    
+    int arry[row][colomn];
     for ( i = 0; i < row; i++){
-            printf("Entre The %d num of %d Row \n", row, i);
+            printf("Entre The %d num of %d Row \n", colomn, i);
         for ( j = 0; j < colomn; j++){
         
             scanf("%d", &arry[i][j]);  // recieve the num from the user
@@ -31,4 +36,3 @@ int main (){
     }
     printf("\n%d", (sizeof arry) / (sizeof arry [0][0]));  //To find the num of the digits in the matrix >> we divide the size of the whole arrey on the size of one digit
 }
-
