@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
+int main (){
+    int  row = 5, colomn = 5,i,j, sum = 0;  //you can change the num of row or colomn from here
+    int arry[row][colomn] ;
+    printf("plz fill this matrix %d x %d \n", row, colomn);
+    for ( i = 0; i < row; i++){
+            printf("Entre The %d num of %d Row \n", row, i);
+        for ( j = 0; j < colomn; j++){
+        
+            scanf("%d", &arry[i][j]);  // recieve the num from the user
+        }
+    }
+  // finding the sum of each row
+    for ( i = 0; i < row; i++ ){
+        for ( j = 0; j < colomn; j++){
+            sum += arry[i][j];
+        }
+            printf(" sum of the %d row as shown >> %d\n", i, sum);
+            sum = 0;  // we initialize the sum here to not add the previous row to the next row
+    }
+    // finding the sum of each colomn
+    for ( j = 0; j < colomn; j++ ){
+        for ( i = 0; i < row; i++){
+            sum += arry[i][j];
+        }
+            printf(" sum of the %d colomn as shown >> %d\n", j, sum);
+            sum = 0;   // we initialize the sum here to not add the previous colomn to the next colomn
+    }
+    printf("\n%d", (sizeof arry) / (sizeof arry [0][0]));  //To find the num of the digits in the matrix >> we divide the size of the whole arrey on the size of one digit
+}
+
