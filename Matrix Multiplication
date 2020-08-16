@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#define MAX 50
+
+int main (){
+    int   aRow, aColomn, bRow, bColomn;
+    int  i ,j, k, sum = 0;
+    int product[MAX][MAX];  //We will store the resultanat matrix in it
+    printf("WELLCOME IN MATRIX MULTIPLICATION\n");
+    printf(" >>> Hint : YOU SHOULD MAKE SURE THAT COLOMNS OF (A) =  ROWS OF (B) <<<\n");
+    // matrix A
+    printf("(((Matrix A)))"); //Get num of rows and colomns from the user for A, B matrices
+    printf("  plz enter the num of aRow : ");
+    scanf("%d", &aRow);
+    printf("\t\tplz enter the num of aColomn : ");
+    scanf("%d", &aColomn);
+    int A_arry[aRow][aColomn];
+    //Matrix B
+    printf("(((Matrix B)))");
+    printf("  plz enter the num of bRow : ");
+    scanf("%d", &bRow);
+    printf("\t\tplz enter the num of bColomn : ");
+    scanf("%d", &bColomn);
+    int B_arry[bRow][bColomn];
+
+    if ( aColomn != bRow){
+
+        printf(" >>> ERROR!!! COLOMNS OF (A) MUST BE EQUAL ROWS OF (B) <<<\n");
+    }
+    else{
+        // A_arrey
+        printf("Please fill A matrix %d x %d\n", aRow, aColomn);  //Fill the matrices A and B
+        for ( i = 0; i < aRow; i++){
+                printf("Entre The %d num of the %d aRow \n", aColomn, i);
+            for ( j = 0; j < aColomn; j++){
+                scanf("%d", &A_arry[i][j]);
+                }
+            }
+        //B_arrey
+        printf("Please fill B matrix %d x %d\n", bRow, bColomn);
+        for ( i = 0; i < bRow; i++){
+                printf("Entre The %d num of the %d bRow \n", bColomn, i);
+            for ( j = 0; j < bColomn; j++){
+                scanf("%d", &B_arry[i][j]);
+                }
+            }
+
+    printf("\n");
+    for ( i = 0; i < aRow; i++){ // it will take one by one from the rows of matrix A 
+        for ( j = 0; j < bColomn; j++){  // it will take one by one from the colomns of matrix B
+            for ( k = 0; k < bRow; k++){ // it will take one by one from the elements of the B rows OR A colomns as the num of each one is equal
+
+                sum += A_arry[i][k] * B_arry[k][j];
+            }
+            product[i][j] = sum; // store the sum in the product arrey
+            sum = 0;
+        }
+    }
+
+    // print the result array
+    printf(" Result Matrix ");
+    printf("\n");
+    for ( i = 0; i < aRow; i++ ){
+        for ( j = 0; j < bColomn; j++){
+            printf("%5d", product[i][j]); // the num of element in the product matrix should equal (A rows * B colomns)
+
+            }
+            printf("\n");
+        }
+    
+    printf("\n num of digits in A_arry = %d", (sizeof A_arry) / (sizeof A_arry [0][0]));
+    printf("\n num of digits in B_arry = %d", (sizeof B_arry) / (sizeof B_arry [0][0]));
+    printf("\n num of digits in the result matrix = %d", aRow * bColomn);
+} //end else
+} // end main
