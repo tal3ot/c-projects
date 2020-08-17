@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+
+int main (){
+    unsigned int current_element, next_element = 0, temp = 0, a,i;
+
+        printf("Please enter the number of your numbers : ");
+        scanf("%u", &a);
+        int nums[a];
+        printf("Entre your numbers \n");
+        for ( i = 0; i < a; i++){
+                scanf(" %d", &nums[i]);
+        }
+        for (current_element = 0; current_element < a - 1; current_element++ ){ //current_element should be < a -1 as there is next_element after it
+            for ( next_element = current_element + 1; next_element < a; next_element++ ){ //next_element should be = current + 1 as it after the current
+                if ( nums[next_element] < nums[current_element] ){
+                    temp = nums[current_element]; //temp is a temporary store during the procces
+                    nums[current_element] = nums[next_element];
+                    nums[next_element] = temp;
+                }
+            }
+        }
+        //printing store arrey
+        printf("\n");
+        for ( current_element = 0; current_element < a; current_element++){ //To print the elements of the store arrey in an ascending order
+            printf(" %d ", nums[current_element]);
+        }
+}
+
