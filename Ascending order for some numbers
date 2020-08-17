@@ -22,7 +22,7 @@ int main (){
             }
         }
         //printing store arrey
-        printf("\n");
+        printf("\n The elements in an ascending order\n");
         for ( current_element = 0; current_element < a; current_element++){ //To print the elements of the store arrey in an ascending order
             printf(" %d ", nums[current_element]);
         }
