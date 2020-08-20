@@ -8,7 +8,7 @@ int main (){
         printf("Please enter the number of your numbers : ");
         scanf("%u", &a);
         int nums[a];
-        printf("Entre your numbers \n");
+        printf("Entre your %d numbers \n", a);
         for ( i = 0; i < a; i++){
                 scanf(" %d", &nums[i]);
         }
