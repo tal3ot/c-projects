@@ -3,10 +3,11 @@
 #include <assert.h>
 #define mean(sum, a) sum/a  // to find the mean
 
-// function main begins program execution
 float median ( unsigned int a, int nums[] );
 
 void mode ( unsigned int freq[], int nums[], size_t a );
+
+// function main begins program execution
 
 int main( void )
     {
