@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <assert.h>
+#define mean(sum, a) sum/a  // to find the mean
+
+// function main begins program execution
+float median ( unsigned int a, int nums[] );
+
+void mode ( unsigned int freq[], int nums[], size_t a );
+
+int main( void )
+    {
+        unsigned int a, freq[10] = { 0 };  // initialize array frequency
+        size_t i;
+        int sum = 0;
+        
+        // recieve the num from the users
+        printf(" plz enter the num of the numbers you want to enter : ");
+        scanf(" %u", &a);
+        int nums[a];
+        printf(" please enter the %d you want from 0 <=> 9 \n", a);
+        for ( i = 0; i < a; i++){
+            scanf(" %u", &nums[i]);
+            sum += nums[i];
+        }
+        // Finding the mean
+        printf(" >>>>>  The Mean of these numbers is equal %.3f  <<<<<\n\n", (float )mean(sum, a));
+        // Finding the median
+        printf(" \n>>>>>  The Median of these numbers is equal %.2f  <<<<<\n\n", median(a,nums));
+        // Finding the mode
+        mode ( freq , nums, a);
+
+    }
+
+float median ( unsigned int a, int nums[] ){
+    int temp;
+    size_t i, current_num, next_num;
+
+    printf(" The array in original order\n");
+        for ( i = 0; i < a; i++){
+           printf(" %u ", nums[i]);
+        }
+        for ( current_num = 0; current_num < a - 1; current_num++){    // to put the array in an ascending order
+            for (next_num = current_num + 1; next_num < a; next_num++){
+                if (nums[next_num] < nums[current_num] ){
+                temp = nums[current_num];
+                nums[current_num] = nums[next_num];
+                nums[next_num] = temp;
+                }
+            }
+        }
+        printf("\n The array in ascending order\n");
+        for ( current_num = 0; current_num < a; current_num++){
+                printf(" %u ", nums[current_num]);
+        }
+        if ( a % 2 != 0){  // if a (the num which the user write ) is odd
+            return nums[a/2];
+        }
+        else{   // if a (the num which the user write ) is even
+            return ((nums[a/2] + nums[a/2 - 1]) / 2.00);
+        }
+}
+  // to find the mode
+void mode ( unsigned int freq[], int nums[] , size_t a)
+{
+    size_t number, k;
+    unsigned int max = 0, mode_num = 0, j;
+
+    for ( number = 0; number <= 9; number++){ //initialize freq to 0
+        freq[number] = 0;
+    }
+    for ( k = 0; k < a; k++){  //counter the freq
+        ++freq[nums[k]];
+    }
+    printf(" %s%11s%20s \n", "Number", "Frequency", "Histogram"); //the headers
+
+    for ( number = 0; number <= 9; number++){
+        printf("%3u%11u             ", number, freq[number]);
+        if (freq[number] > max){
+            max = freq[number];
+            mode_num = number;
+        }
+        for ( j = 1; j <= freq[number]; j++){
+            printf(" %s", "*");
+        }
+        puts( "" );
+    }
+    printf(" \n>>>>> The Mode is %u which occurred %u times <<<<< \n ", mode_num, max);
+}
